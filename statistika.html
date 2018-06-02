@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>statistika</title>
+	<link rel="stylesheet" type="text/css" href="sta.css" />
+</head>
+<body>
+<div id="header"><img src="lam.png" width="50px">Program Statistika</div>
+<div id="body">
+<!- === javascript ====== javascript ====== javascript ====== javascript ====== javascript ===->
+<script type="text/javascript" language="javascript">
+function table(){ 
+	var n=prompt("masukkan banyak data:");  //--> banyak data
+	var datax=new Array();                  
+	var datay=new Array();
+	var dataxy=new Array();
+	var datax2=new Array();
+	var datay2=new Array();
+	//================= masukkan nilai data x ======================//
+	//==============================================================//
+	i=0;                                    // --> set index data awal
+	while(i<=n-1){                          // --> masukkan data x
+		datax[i]=prompt("masukkan data x:"+(i+1));
+		i++;
+	};
+	jumlahx=0                              // -->jumlah dat x
+	for (var i = 0; i < datax.length; i++) {
+		jumlahx=eval(jumlahx)+eval(datax[i]);
+	};
+	//================= masukkan nilai data y ======================//
+	//==============================================================//
+	j=0;                                    // --> set index data awal
+	while(j<=n-1){                          // --> masukkan data y
+		datay[j]=prompt("masukkan data y:"+(j+1));   
+		j++
+	};
+	jumlahy=0                              // -->jumlah dat y
+	for (var i = 0; i < datay.length; i++) {
+		jumlahy=eval(jumlahy)+eval(datay[i]);
+	};
+	//================= masukkan nilai data xy =====================//
+	//==============================================================//
+	k=0;                                    // --> set index data awal
+	while(k<=n-1){                          // --> masukkan data xy
+		dataxy[k]=datax[k]*datay[k]         // --> rumus xy=x*y
+		k++
+	};
+	jumlahxy=0                              // -->jumlah dat xy
+	for (var i = 0; i < dataxy.length; i++) {
+		jumlahxy=eval(jumlahxy)+eval(dataxy[i]);
+	};
+	//================= masukkan nilai data x^2 =====================//
+	//===============================================================//
+	l=0;                                    // --> set index data awal
+	while(l<=n-1){                          // --> masukkan data x^2
+		datax2[l]=datax[l]**2        		// --> rumus x^2=x**2
+		l++
+	};
+	jumlahx2=0                              // -->jumlah dat x
+	for (var i = 0; i < datax2.length; i++) {
+		jumlahx2=eval(jumlahx2)+eval(datax2[i]);
+	};
+	//================= masukkan nilai data y^2 =====================//
+	//===============================================================//
+	m=0;                                    // --> set index data awal
+	while(m<=n-1){                          // --> masukkan data y^2
+		datay2[m]=datay[m]**2        		// --> rumus y^2=y**2
+		m++
+	};
+	jumlahy2=0                              // -->jumlah dat x
+	for (var i = 0; i < datay2.length; i++) {
+		jumlahy2=eval(jumlahy2)+eval(datay2[i]);
+	};
+	//=================membuat tabel============================
+	
+		var up_a=(jumlahy*jumlahx2)-(jumlahx*jumlahxy);
+		var down_b=(n*jumlahx2)-(jumlahx**2);
+		nilai_a=up_a/down_b;
+	
+		var up_b=(n*jumlahxy)-(jumlahx*jumlahy);
+		var down_b=(n*jumlahx2)-(jumlahx**2);
+		nilai_b=up_b/down_b;
+
+		var up_kor=(n*jumlahxy)-(jumlahy*jumlahx);
+		var down_kor1=Math.sqrt((n*jumlahx2)-(jumlahx**2));
+		var down_kor2=Math.sqrt((n*jumlahy2)-(jumlahy**2));
+		nilai_kor=up_kor/(down_kor1*down_kor2);
+
+		var up_det=up_kor**2;
+		var down_det1=(n*jumlahx2)-(jumlahx**2);
+		var down_det2=(n*jumlahy2)-(jumlahy**2);
+		nilai_det=up_det/(down_det1*down_det2);
+
+	
+
+	var table='';
+	var baris=n;
+	var kolom=5;
+	for (var r= 0; r < baris ;r++)
+	{
+		table+="<tr><td style='background-color: Darksalmon;'>"+(r+1)+"</td><td style='background-color: Chartreuse;'>"+datax[r]+"</td><td style='background-color: Cyan;'>"+datay[r]+"</td><td style='background-color: Gold;'>"+dataxy[r]+"</td><td style='background-color:  Fuchsia;'>"+datax2[r]+"</td><td style='background-color: Bisque;'>"+datay2[r]+"</td></tr>"
+	};
+	
+	document.write('<html><head><link rel="stylesheet" type="text/css" href="sta.css" /></head><body><div id="header"><img src="lam.png" width="50px">Program Statistika</div><div id="body"><table border="1"><tr><td style="background-color: Darksalmon;">No</td><td style="background-color: Chartreuse;">X</td><td style="background-color: Cyan;">Y</td><td style="background-color: gold;">XY</td><td style="background-color: Fuchsia;">X^2</td><td style="background-color: Bisque;">Y^2</td></tr>'+table+'<tr><td style="background-color: Darksalmon;">jumlah</td><td style="background-color: Chartreuse;">'+jumlahx+'</td><td style="background-color: Cyan;">'+jumlahy+'</td><td style="background-color: gold;">'+jumlahxy+'</td><td style="background-color: Fuchsia;">'+jumlahx2+'</td><td style="background-color: Bisque;">'+jumlahy2+'</td></tr></table><br><img src="rumus.png" width="200px" height="100px"><br><br>dari data diatas ,maka didapat:<br>1.nilai a   ='+nilai_a+'<br>2.nilai b   ='+nilai_b+'<br>3.korelasi(r) ='+nilai_kor+'<br>4.koefisien determinasi ='+nilai_det+'</div></body></html>');
+}
+</script>
+<!- === javascript ====== javascript ====== javascript ====== javascript ====== javascript ===->
+ <dd><u>pilih menu dibawah ini</u><br/></dd>
+ <dd>1.mencari nilai a,b dan koefisien korelasi<br><button onclick="table()">tambahkan data</button><br></dd>
+ <dd>2.sedikit info mengenai <a href="regresi.html">Regresi Linier</a></dd><br><br><br><img src="statis.png" width="300px" height="100px"><br>
+ <font face="arial" size="1"> &copy;copyright iqbal_okthapian</font>
+</div>
+</body>
+</html>
